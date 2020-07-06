@@ -14,6 +14,7 @@ Loc::loadMessages(__FILE__);
  */
 require_once(BX_LOCAL_ROOT . '/php_interface/_constants.php');
 require_once(BX_LOCAL_ROOT . '/php_interface/_globals.php');
+require_once(BX_LOCAL_ROOT . '/php_interface/_functions.php');
 
 /*
  * Подключим кастомные классы и функции
