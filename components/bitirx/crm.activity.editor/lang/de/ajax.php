@@ -1,0 +1,29 @@
+<?
+$MESS["CRM_ACTION_DEFAULT_SUBJECT"] = "Neue Aktivität (#DATE#)";
+$MESS["CRM_CALL_ACTION_DEFAULT_SUBJECT"] = "Neuer Anruf (#DATE#)";
+$MESS["CRM_MEETING_ACTION_DEFAULT_SUBJECT"] = "Neuer Termin (#DATE#)";
+$MESS["CRM_EMAIL_ACTION_DEFAULT_SUBJECT"] = "Neue E-Mail (#DATE#)";
+$MESS["CRM_TITLE_EMAIL_SUBJECT"] = "Betreff";
+$MESS["CRM_TITLE_EMAIL_FROM"] = "Von";
+$MESS["CRM_TITLE_EMAIL_TO"] = "An";
+$MESS["CRM_COMMUNICATION_TAB_LEAD"] = "Lead";
+$MESS["CRM_COMMUNICATION_TAB_DEAL"] = "Auftrag";
+$MESS["CRM_COMMUNICATION_TAB_COMPANY"] = "Unternehmen";
+$MESS["CRM_COMMUNICATION_TAB_CONTACT"] = "Kontakt";
+$MESS["CRM_ACTIVITY_EMAIL_EMPTY_FROM_FIELD"] = "Geben Sie bitte den Absender an.";
+$MESS["CRM_ACTIVITY_EMAIL_EMPTY_TO_FIELD"] = "Geben Sie bitte den Empfänger an.";
+$MESS["CRM_ACTIVITY_INVALID_EMAIL"] = "Die E-Mail-Adresse '#VALUE#' ist nicht korrekt.";
+$MESS["CRM_ACTIVITY_RESPONSIBLE_NOT_FOUND"] = "Für diese Aktivität wurden keine Verantwortlichen gefunden.";
+$MESS["CRM_INCOMING_CALL_ACTION_DEFAULT_SUBJECT_EXT"] = "Eingehender Anruf #TITLE#";
+$MESS["CRM_OUTGOING_CALL_ACTION_DEFAULT_SUBJECT_EXT"] = "Ausgehender Anruf #TITLE#";
+$MESS["CRM_MEETING_ACTION_DEFAULT_SUBJECT_EXT"] = "Termin mit #TITLE#";
+$MESS["CRM_PERMISSION_DENIED"] = "Zugriff verweigert";
+$MESS["CRM_EMAIL_ACTION_DEFAULT_DESCRIPTION"] = "[ohne Text]";
+$MESS["CRM_CONTACT_UPDATE_PERMISSION_DENIED"] = "Sie sind nicht berechtigt, Aktivitäten des Kontakts #TITLE#\" zu bearbeiten. Wenden Sie sich bitte an Ihren Intranet-Administrator.";
+$MESS["CRM_COMPANY_UPDATE_PERMISSION_DENIED"] = "Sie sind nicht berechtigt, Aktivitäten des Unternehmens #TITLE#\" zu bearbeiten. Wenden Sie sich bitte an Ihren Intranet-Administrator.";
+$MESS["CRM_LEAD_UPDATE_PERMISSION_DENIED"] = "Sie sind nicht berechtigt, Aktivitäten des Leads #TITLE#\" zu bearbeiten. Wenden Sie sich bitte an Ihren Intranet-Administrator.";
+$MESS["CRM_DEAL_UPDATE_PERMISSION_DENIED"] = "Sie sind nicht berechtigt, Aktivitäten des Auftrags #TITLE#\" zu bearbeiten. Wenden Sie sich bitte an Ihren Intranet-Administrator.";
+$MESS["CRM_ACTIVITY_COULD_NOT_CREATE_POSTING"] = "Die E-Mail-Nachricht konnte nicht registriert werden.";
+$MESS["CRM_ACTIVITY_COULD_NOT_SAVE_POSTING_FILE"] = "Die Datei \"#FILE_NAME#\" konnte zur Nachricht nicht angehängt werden.";
+$MESS["CRM_ACTIVITY_EMAIL_CREATION_CANCELED"] = "Erstellung einer E-Mail-Nachricht wurde abgebrochen.";
+?>

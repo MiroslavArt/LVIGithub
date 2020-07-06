@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="a6ac7c96-a80d-4ebc-beb9-881825dc98cc" name="LVI" url="http://148.251.1.230">
+        <fileTransfer host="148.251.1.230" port="22123" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22123" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
