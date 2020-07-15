@@ -739,7 +739,8 @@ elseif($action === 'DELETE')
 }
 elseif($action === 'EXCLUDE')
 {
-    \Bitrix\Main\Diag\Debug::writeToFile($_POST, "postexclude", "__miros.log");
+    // ajax для занесеня в блэк лист https://b24.lvi-outlet.com/bitrix/services/main/ajax.php?mode=class&c=bitrix%3Amail.blacklist.list&action=addMails
+    \Bitrix\Main\Diag\Debug::writeToFile($_POST, "postexclude", "__miros5.log");
 
     $ID = isset($_POST['ACTION_ENTITY_ID']) ? max((int)$_POST['ACTION_ENTITY_ID'], 0) : 0;
 	if($ID <= 0)

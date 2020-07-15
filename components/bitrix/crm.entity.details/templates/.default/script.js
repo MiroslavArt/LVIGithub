@@ -16,6 +16,7 @@ if(typeof BX.Crm.EntityDetailManager === "undefined")
 		this._pageUrlCopyButton = null;
 		this._externalEventHandler = null;
 		this._externalRequestData = null;
+		this._checkbox = false;
 	};
 	BX.Crm.EntityDetailManager.prototype =
 	{
@@ -188,6 +189,10 @@ if(typeof BX.Crm.EntityDetailManager === "undefined")
 		},
 		exclude: function ()
 		{
+			// консоль для проверки чек бокса
+			console.log('newbox');
+			console.log(checkbox);
+
 			if(this._serviceUrl === "")
 			{
 				throw "Crm.EntityDetailManager: The 'serviceUrl' parameter is not defined or empty.";
@@ -202,7 +207,9 @@ if(typeof BX.Crm.EntityDetailManager === "undefined")
 						{
 							"ACTION": "EXCLUDE",
 							"ACTION_ENTITY_TYPE_ID": this._entityTypeId,
-							"ACTION_ENTITY_ID": this._entityId
+							"ACTION_ENTITY_ID": this._entityId,
+							// передача чек бокса отправки в спам
+							"ACTION_SPAM": checkbox
 						},
 					onsuccess: BX.delegate(this.onExclusionRequestSuccess, this)
 				}
@@ -211,21 +218,45 @@ if(typeof BX.Crm.EntityDetailManager === "undefined")
 		processExclusion: function()
 		{
 			this._exclusionConfirmDlgId = "entity_details_exclusion_confirm";
+
+
 			var dlg = BX.Crm.ConfirmationDialog.get(this._exclusionConfirmDlgId);
-			if(!dlg)
-			{
-				dlg = BX.Crm.ConfirmationDialog.create(
-					this._exclusionConfirmDlgId,
-					{
-						title: this.getMessage("exclusionDialogTitle"),
-						content: this.getMessage("exclusionConfirmDialogContent")
-							+ ' <a href="javascript: top.BX.Helper.show(\'redirect=detail&code=7362845\');">'
-							+ this.getMessage("exclusionConfirmDialogContentHelp")
-							+ '</a>'
+				if (!dlg) {
+					dlg = BX.Crm.ConfirmationDialog.create(
+						this._exclusionConfirmDlgId,
+						{
+							title: this.getMessage("exclusionDialogTitle"),
+							content: this.getMessage("exclusionConfirmDialogContent")
+								+ ' <a href="javascript: top.BX.Helper.show(\'redirect=detail&code=7362845\');">'
+								+ this.getMessage("exclusionConfirmDialogContentHelp")
+								+ '</a></br>'
+								// добавляем чек бокс
+								+ '<label><input type="checkbox" class="check">All emails from this adrees should go to SPAM</label>'
+
+						}
+					);
+
+				}
+
+				dlg.open().then(BX.delegate(this.onExclusionConfirm, this));
+
+				// событие при изменении чек бокса
+				checkbox = false;
+				BX.bindDelegate(
+					document.body, 'click', {className: 'check' },
+					function(){
+						if (checkbox === false) {
+							checkbox = true;
+						} else {
+							checkbox = false;
+						}
+
+
+
 					}
 				);
-			}
-			dlg.open().then(BX.delegate(this.onExclusionConfirm, this));
+
+
 		},
 		createEntity: function(entityTypeName, options)
 		{
@@ -351,12 +382,18 @@ if(typeof BX.Crm.EntityDetailManager === "undefined")
 		},
 		onExclusionConfirm: function(result)
 		{
-			if(BX.prop.getBoolean(result, "cancel", true))
-			{
-				return;
-			}
 
-			this.exclude();
+
+				//console.log('check');
+				//console.log(BX('checks'));
+
+				if (BX.prop.getBoolean(result, "cancel", true)) {
+					return;
+				}
+
+				this.exclude();
+
+
 		},
 		onExclusionRequestSuccess: function(result)
 		{

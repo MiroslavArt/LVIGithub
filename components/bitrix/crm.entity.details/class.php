@@ -197,7 +197,7 @@ class CCrmEntityPopupComponent extends CBitrixComponent
 			\CCrmOwnerType::OrderShipmentName =>
 				\CCrmOwnerType::GetListUrl(\CCrmOwnerType::OrderShipment, false),
 		);
-
+        //\Bitrix\Main\Diag\Debug::writeToFile($this->arResult, "result", "__miros4.log");
 		//region Deal Categories
 		$this->arResult['DEAL_CATEGORY_ACCESS'] = array(
 			'CREATE' => \CCrmDeal::GetPermittedToCreateCategoryIDs($this->userPermissions),
