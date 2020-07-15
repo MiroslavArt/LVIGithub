@@ -231,7 +231,7 @@ if(typeof BX.Crm.EntityDetailManager === "undefined")
 								+ this.getMessage("exclusionConfirmDialogContentHelp")
 								+ '</a></br>'
 								// добавляем чек бокс
-								+ '<label><input type="checkbox" class="check">All emails from this adrees should go to SPAM</label>'
+								+ '<label><input type="checkbox" class="check">All emails from this adress should go to SPAM</label>'
 
 						}
 					);

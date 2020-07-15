@@ -754,6 +754,27 @@ elseif($action === 'EXCLUDE')
 	}
 
 	\Bitrix\Crm\Exclusion\Store::addFromEntity(CCrmOwnerType::Lead, $ID);
+    // добавление в черный список
+	if($_POST['ACTION_SPAM'] == 'true') {
+        $dbResult = CCrmFieldMulti::GetList(
+            array('ID' => 'asc'),
+            array(
+                'ELEMENT_ID' => $ID,
+                'ENTITY_ID' => 'LEAD',
+                'TYPE_ID' => 'EMAIL'
+            )
+        );
+        $blacklistMails = array();
+
+        while ($arEmail = $dbResult->Fetch()) {
+            array_push($blacklistMails, $arEmail['VALUE']);
+        }
+        if($blacklistMails) {
+            \Bitrix\Mail\BlacklistTable::addMailsBatch($blacklistMails, 0);
+        }
+    }
+    // конец добавления в черный список
+
 
 	if(\CCrmLead::CheckDeletePermission($ID, $currentUserPermissions))
 	{
